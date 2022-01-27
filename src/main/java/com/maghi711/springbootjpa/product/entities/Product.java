@@ -1,4 +1,4 @@
-package com.maghi711.bootsecuritydemo.entities;
+package com.maghi711.springbootjpa.product.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

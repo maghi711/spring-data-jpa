@@ -1,14 +1,14 @@
-package com.maghi711.bootsecuritydemo;
+package com.maghi711;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class BootSecurityDemoApplication {
+public class SpringBootJpaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BootSecurityDemoApplication.class, args);
+		SpringApplication.run(SpringBootJpaApplication.class, args);
 	}
 
 }
