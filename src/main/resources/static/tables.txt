@@ -1,0 +1,10 @@
+# Create a product table
+
+create table product (
+  id SERIAL4 NOT NULL,
+  name VARCHAR(50),
+  description VARCHAR(100),
+  price NUMERIC(8, 3),
+  CONSTRAINT users_pkey_id PRIMARY KEY (id),
+  CONSTRAINT users_username_key UNIQUE (name)
+);
