@@ -59,4 +59,13 @@ class SpringBootJpaApplicationTests {
 		final Product save = productRepository.save(actual);
 		assertThat(save).isNotNull();
 	}
+
+	@Test
+	void testDelete() {
+		productRepository.deleteById(2L);
+
+		String name = null;
+		assertThat(name).isNull();
+	}
+
 }
