@@ -8,3 +8,25 @@ create table product (
   CONSTRAINT users_pkey_id PRIMARY KEY (id),
   CONSTRAINT users_username_key UNIQUE (name)
 );
+
+# Employee and Address - One To Many Mapping
+
+CREATE TABLE employee (
+    id SERIAL4 NOT NULL,
+    name VARCHAR(50),
+    CONSTRAINT employee_pk PRIMARY KEY (id),
+    CONSTRAINT employee_uk UNIQUE (name)
+);
+
+# Address information
+CREATE TABLE address (
+    id SERIAL4 NOT NULL,
+    emp_id SERIAL4 NOT NULL,
+    street VARCHAR(100),
+    city VARCHAR(100),
+    state VARCHAR(100),
+    zipcode VARCHAR(100),
+    country VARCHAR(100),
+    CONSTRAINT address_pk PRIMARY KEY (id),
+    CONSTRAINT address_fk FOREIGN KEY (emp_id) REFERENCES employee(id)
+);
