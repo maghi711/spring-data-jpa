@@ -2,8 +2,6 @@ package com.maghi711.bootsecuritydemo;
 
 import com.maghi711.springbootjpa.product.entities.Product;
 import com.maghi711.springbootjpa.product.repos.ProductRepository;
-import org.assertj.core.api.Assert;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +21,8 @@ class SpringBootJpaApplicationTests {
 
 	@Test
 	void contextLoads() {
+		String name = null;
+		assertThat(name).isNull();
 	}
 
 	@Test
@@ -33,7 +33,8 @@ class SpringBootJpaApplicationTests {
 		product.setDesc("Online only release phone");
 		product.setPrice(16000.000);
 
-		productRepository.save(product);
+		final Product save = productRepository.save(product);
+		assertThat(save).isNotNull();
 		/**
 		 * 2022-01-27 22:04:56.103  INFO 13035 --- [    Test worker] c.m.b.SpringBootJpaApplicationTests      : Started SpringBootJpaApplicationTests in 3.981 seconds (JVM running for 5.375)
 		 * Hibernate: select product0_.id as id1_0_0_, product0_.description as descript2_0_0_, product0_.name as name3_0_0_, product0_.price as price4_0_0_ from product product0_ where product0_.id=?
@@ -48,5 +49,14 @@ class SpringBootJpaApplicationTests {
 		assertThat(byId).isNotNull();
 		final Product actual = byId.get();
 		assertThat(actual.getName()).isEqualTo("Mi A1");
+	}
+
+	@Test
+	void testUpdate() {
+		final Optional<Product> byId = productRepository.findById(1L);
+		final Product actual = byId.get();
+		actual.setPrice(16500.000);
+		final Product save = productRepository.save(actual);
+		assertThat(save).isNotNull();
 	}
 }
