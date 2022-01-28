@@ -73,4 +73,10 @@ class SpringBootJpaApplicationTests {
 		final boolean b = productRepository.existsById(1L);
 		assertThat(b).isTrue();
 	}
+
+	@Test
+	void testRecordCount() {
+		final long count = productRepository.count();
+		assertThat(count).isGreaterThanOrEqualTo(0);
+	}
 }
