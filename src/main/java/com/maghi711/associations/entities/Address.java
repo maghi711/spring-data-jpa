@@ -6,8 +6,8 @@ import javax.persistence.*;
 public class Address {
 
     @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false, columnDefinition = "serial")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
@@ -19,6 +19,10 @@ public class Address {
     private String state;
     private String zipcode;
     private String country;
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     public Employee getEmployee() {
         return employee;
