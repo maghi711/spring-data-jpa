@@ -1,4 +1,4 @@
-package com.maghi711.bootsecuritydemo;
+package com.maghi711.springbootjpa.product;
 
 import com.maghi711.springbootjpa.product.entities.Product;
 import com.maghi711.springbootjpa.product.repos.ProductRepository;
