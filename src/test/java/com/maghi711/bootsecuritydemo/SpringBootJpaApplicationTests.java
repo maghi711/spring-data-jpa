@@ -68,4 +68,9 @@ class SpringBootJpaApplicationTests {
 		assertThat(name).isNull();
 	}
 
+	@Test
+	void testExistsById() {
+		final boolean b = productRepository.existsById(1L);
+		assertThat(b).isTrue();
+	}
 }
